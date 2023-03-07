@@ -1,2 +1,2 @@
 # team-performance-app
-//App is on Angular 
+# App is on Angular 
