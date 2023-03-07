@@ -1,0 +1,41 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Team Member</h5>
+          <p class=" category">
+            Add Component
+          </p>
+        </div>
+        <form [formGroup] ="form">
+                <div class="col-lg-6">
+                      <div class="form-group" [ngClass]="{ 'has-success': form.controls.name.valid && !form.controls.name.pristine, 'has-danger': !form.controls.name.valid && !form.controls.name.pristine}">
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" [(ngModel)]="team_member_model.name" formControlName="name">
+                          <span class="help-block"
+                          [style.display]="form.controls.name.valid || form.controls.name.pristine ? 'none': 'inherit'">
+                          <small *ngIf="form.controls.name.hasError('required')">
+                            Name is required and can't be empty
+                          </small>
+                        </span>
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"  [ngClass]="{ 'has-success': form.controls.team_member_type_id.valid && !form.controls.team_member_type_id.pristine, 'has-danger': !form.controls.team_member_type_id.valid && !form.controls.team_member_type_id.pristine}">
+                        <label for="name">Team Member Type</label>
+                        <select *ngIf="team_member_types" class="form-control" [(ngModel)]="team_member_model.team_member_type_id" formControlName="team_member_type_id">
+                          <option *ngFor="let team_member_type of team_member_types" value="{{ team_member_type.id }}">{{ team_member_type.name }}</option>
+                      </select>
+                    </div>
+                </div>
+                
+                <div class="col-md-8" style="padding-left: 400px;" >
+                <button type="submit" class="btn btn-primary" (click)="addTeamMember()">Submit</button>
+                </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

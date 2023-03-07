@@ -1,0 +1,127 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Daily Progress</h5>
+          <p class=" category">
+            Add Component
+          </p>
+        </div>
+        <div class=" card-body">
+          <form [formGroup] ="form">
+            <div class="row">
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <select *ngIf="team_members" class="form-control" [(ngModel)]="daily_progress_model.team_member_id" formControlName="team_member_id">
+                    <option *ngFor="let team_member of team_members" value="{{ team_member.id }}">{{ team_member.name }}</option>
+                </select>
+                </div>
+              </div>
+              <div class="col-md-5  pr-md-1">
+                <div class="form-group">
+                  <label for="delay">Delay</label>
+                  <select class="form-control" [(ngModel)]="daily_progress_model.delay" formControlName="delay">
+                    <option *ngFor="let data of data" value="{{ data.id }}">{{ data.name }}</option>
+                </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-5  pr-md-1">
+                <div class="form-group">
+                  <label for="absent">Absent/Present</label>
+                  <select class="form-control" [(ngModel)]="daily_progress_model.absent" formControlName="absent">
+                    <option *ngFor="let data of data" value="{{ data.id }}">{{ data.name }}</option>
+                </select>
+                </div>
+              </div>
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label for="availability">Availability</label>
+                  <select class="form-control" [(ngModel)]="daily_progress_model.availability" formControlName="availability">
+                    <option *ngFor="let data of availabilityData" value="{{ data.id }}">{{ data.name }}</option>
+                  </select>
+                  <!-- <input type="number" class="form-control" formControlName="availability" [(ngModel)]="daily_progress_model.availability"> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label for="late">Late</label>
+                  <select class="form-control" [(ngModel)]="daily_progress_model.late" formControlName="late">
+                    <option *ngFor="let data of data" value="{{ data.id }}">{{ data.name }}</option>
+                </select>
+                  <!-- <input type="number" class="form-control" formControlName="late" [(ngModel)]="daily_progress_model.late"> -->
+                </div>
+              </div>
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label for="scrum">Scrum</label>
+                  <select class="form-control" [(ngModel)]="daily_progress_model.scrum" formControlName="scrum">
+                    <option *ngFor="let data of data" value="{{ data.id }}">{{ data.name }}</option>
+                </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="task">Task</label>
+                  <input type="text" class="form-control" formControlName="task" [(ngModel)]="daily_progress_model.task">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="comments">Comments</label>
+                  <input type="text" class="form-control" formControlName="comments" [(ngModel)]="daily_progress_model.comments">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12" style="text-align: right;">
+            <button type="submit" class="btn btn-primary" (click)="addPerformance()">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-4">
+      <div class=" card card-user">
+        <div class=" card-body">
+          <p class=" card-text"></p>
+          <div class=" author">
+            <div class=" block block-one"></div>
+            <div class=" block block-two"></div>
+            <div class=" block block-three"></div>
+            <div class=" block block-four"></div>
+            <!-- <a href="javascript:void(0)">
+              <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
+
+              <h5 class=" title">Mike Andrew</h5>
+            </a> -->
+            <div class="description">
+              <h3>Availability</h3>
+              <p>Absent = 0</p>
+              <p>Good = 1</p>
+              <p>Average = 2</p>
+              <p>Bad = 3</p>
+              <p>Very Bad = 4</p>
+            </div>
+            <p class=" description">
+            </p>
+          </div>
+          <div class=" card-description">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
